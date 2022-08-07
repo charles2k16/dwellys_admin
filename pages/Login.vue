@@ -7,15 +7,20 @@
           <p class="mt-10">Authorized login for Dwellys Administrators.</p>
         </div>
         <div class="text item">
-          <el-form ref="loginForm" :model="loginForm" :rules="validation">
-            <el-form-item prop="email">
+          <el-form
+            ref="loginForm"
+            :model="loginForm"
+            :rules="validation"
+            class="d-flex_column_center"
+          >
+            <el-form-item prop="email" class="pb-20 w-70">
               <el-input
                 v-model="loginForm.email"
                 placeholder="youremail@email.com"
               ></el-input>
             </el-form-item>
 
-            <el-form-item prop="password">
+            <el-form-item prop="password" class="w-70">
               <el-input
                 v-model="loginForm.password"
                 type="password"
@@ -100,7 +105,7 @@ export default Vue.extend({
         .then((response: any) => {
           console.log(login)
           const { user, token } = response.data.data
-
+          console.log('user token', user, token)
           this.$auth.setUserToken(token)
           this.$auth.setUser(user)
           // this.$auth.$storage.setLocalStorage("user_data", user);
@@ -116,6 +121,12 @@ export default Vue.extend({
         })
         .catch((error) => {
           console.log(error)
+          if (error?.response?.data) {
+            ;(this as any as IMixinState).getNotification(
+              'User Not Recognized',
+              'warning'
+            )
+          }
           this.buttonLoading = false
         })
     },
@@ -131,7 +142,7 @@ export default Vue.extend({
   align-items: center;
 
   .box-card {
-    max-width: 400px;
+    max-width: 600px;
     width: 100%;
 
     .login_title {

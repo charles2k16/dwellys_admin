@@ -7,14 +7,14 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Dwellys',
+    title: 'Dwellys Admin',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: 'Saharago management system',
+        content: 'Dwellys management system',
       },
       { name: 'format-detection', content: 'telephone=023023345' },
     ],
@@ -29,7 +29,11 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/elementUI/element-ui', '@/plugins/api.js'],
+  plugins: [
+    '@/plugins/elementUI/element-ui',
+    '@/plugins/api.js',
+    '@/plugins/persistedState.client.js',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
@@ -71,26 +75,26 @@ export default {
     strategies: {
       local: {
         token: {
-          property: 'token',
+          property: false,
           global: true,
-          // required: true,
+          required: true,
           type: 'Bearer',
         },
         user: {
-          property: 'user',
-          // autoFetch: true
+          property: false,
+          autoFetch: false,
         },
         endpoints: {
           login: { url: '/login', method: 'post' },
-          logout: { url: '/auth/logout', method: 'get' },
-          user: { url: '/auth/current-user', method: 'get' },
+          // logout: { url: '/logout', method: 'post' },
+          user: false,
         },
       },
     },
   },
 
   // router: {
-  //   middleware: ['auth'],
+  // middleware: ['auth'],
   // },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

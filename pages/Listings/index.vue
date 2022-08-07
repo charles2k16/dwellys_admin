@@ -222,6 +222,7 @@ export default Vue.extend({
       this.$router.push(`/listing_details/${id}`)
     },
     async approveLister(listingId: string, status: string) {
+      this.loading = true
       try {
         const listingResponse = await this.$toggleListingApi.create({
           listing_id: listingId,
@@ -232,6 +233,7 @@ export default Vue.extend({
         // console.log(listingId, active)
 
         this.loading = false
+        this.fetchData()
         ;(this as any as IMixinState).$message({
           showClose: true,
           message: listingResponse.message,

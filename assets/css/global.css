@@ -68,12 +68,14 @@ hr.hr_rule {
 }
 footer {
   padding: 7px;
-  background: #c53117;
-  color: #fff;
+  background: var(--color-primary);
 }
+
 footer p {
   font-size: 11px;
+  color: #fff;
 }
+
 .text-black {
   color: var(--text-base);
 }
@@ -92,7 +94,9 @@ footer p {
 .w-50 {
   width: 50%;
 }
-
+.w-60 {
+  width: 60%;
+}
 .w-70 {
   width: 70%;
 }
@@ -195,9 +199,17 @@ footer p {
   padding-left: 10px;
   padding-right: 10px;
 }
+.px-20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .px-30 {
   padding-left: 30px;
   padding-right: 30px;
+}
+.py-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .py-20 {
   padding-top: 20px;
@@ -275,6 +287,10 @@ footer p {
 .align_center {
   display: flex;
   align-items: center;
+}
+.d-flex_column {
+  display: flex;
+  flex-direction: column;
 }
 .d-flex_column_center {
   display: flex;

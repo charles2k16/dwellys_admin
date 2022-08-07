@@ -10,7 +10,9 @@
             src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
           ></el-avatar>
           <div class="ml-10">
-            <span class="text-black"> Charles Obeng </span>
+            <span class="text-black">
+              {{ $auth.user.first_name }} {{ $auth.user.last_name }}
+            </span>
             <br />
             <small>Admin User</small>
           </div>
@@ -26,7 +28,7 @@
                 <span> Account </span>
               </li>
               <hr class="hr_rule" />
-              <li class="mt-5">
+              <li class="mt-5" @click="logout">
                 <i class="el-icon-setting"></i>
                 <span> Logout </span>
               </li>
@@ -56,8 +58,15 @@ export default Vue.extend({
   },
   created() {
     this.setRoutesNames(this.$route.name!)
+    console.log('auth', this.$auth)
   },
   methods: {
+    async logout() {
+      await this.$auth.logout()
+      this.$router.push({
+        name: 'Login',
+      })
+    },
     clearNotifications() {
       this.notify_count = 0
     },

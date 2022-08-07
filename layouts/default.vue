@@ -12,7 +12,8 @@
       </el-main>
       <footer class="d-flex justify_between">
         <p>Dwellys © 2022. All right reserved.</p>
-        <p>v-1.0.2</p>
+
+        <p>v-0.3.4</p>
       </footer>
     </el-container>
   </el-container>

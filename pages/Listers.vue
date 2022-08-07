@@ -51,6 +51,7 @@
     </el-card>
 
     <NuxtChild :listings="listings" :fetch-data="fetchData" />
+    <!-- :type="listing_type" -->
   </div>
 </template>
 
@@ -58,6 +59,7 @@
 import Vue from 'vue'
 export default Vue.extend({
   name: 'ListersPage',
+  middleware: 'auth',
   data() {
     return {
       listings: [],
@@ -72,6 +74,8 @@ export default Vue.extend({
     async fetchData() {
       // this.pageLoad = true;
       const listings = await this.$usersApi.show('lister')
+
+      console.log(listings)
       this.listings = listings.data
     },
     addProduct(): void {

@@ -116,8 +116,9 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
   height: 43px;
   border-radius: 8px;
   background: #f8fafc;
-  width: 320px;
-  // width: 100%;
+  max-width: 320px;
+
+  width: 100%;
 }
 
 .el-input.is-active .el-input__inner,

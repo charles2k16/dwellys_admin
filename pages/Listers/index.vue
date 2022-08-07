@@ -220,7 +220,7 @@ import Vue from 'vue'
 import { IMixinState } from '@/types/mixinsTypes'
 
 export default Vue.extend({
-  name: 'ProductsSubmitted',
+  name: 'Listers',
   props: {
     listings: {
       required: true,

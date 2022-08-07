@@ -17,4 +17,7 @@ export default (ctx, inject) => {
   inject('toggleListingApi', apiService('/listing/togglestatus'))
   inject('approvalApi', apiService('/idcardapproval'))
   inject('countriesApi', apiService('/countries'))
+  inject('propertyApi', apiService('/propertytypes'))
+  inject('specificationsTypeApi', apiService('/propertytypespecifications'))
+  inject('AmenitiesApi', apiService('/propertytypeamenities'))
 }
