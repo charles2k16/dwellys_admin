@@ -87,14 +87,10 @@
                 @click="getListingDetails(scope.row.id)"
               >
                 <el-tag
-                  :type="
-                    scope.row.is_id_card_verified == 1 ? 'success' : 'error'
-                  "
+                  :type="scope.row.status == 'active' ? 'success' : 'error'"
                   size="small"
                 >
-                  {{
-                    scope.row.is_id_card_verified == 1 ? 'Yes' : 'No'
-                  }}</el-tag
+                  {{ scope.row.status == 'active' ? 'Yes' : 'No' }}</el-tag
                 >
               </div>
             </template>
@@ -223,6 +219,7 @@ export default Vue.extend({
     },
     async approveLister(listingId: string, status: string) {
       this.loading = true
+      console.log(status)
       try {
         const listingResponse = await this.$toggleListingApi.create({
           listing_id: listingId,

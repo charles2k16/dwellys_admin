@@ -123,7 +123,7 @@
     <el-drawer
       title="User lister information"
       :visible.sync="drawer"
-      size="35%"
+      size="30%"
     >
       <div class="px-30 user_details">
         <div class="d-flex">
@@ -184,29 +184,30 @@
             src="../../assets/img/profile.jpg"
             class="identification_card pb-10"
           />
-          <div
+          <!-- <div
             v-if="profile.is_id_card_verified == 1"
             class="p-10 d-flex justify_center"
           >
             <p class="p-10 verified">
               <i class="el-icon-check pr-10"></i>Verified
             </p>
-          </div>
-          <div v-else class="d-flex pt-30 pb-30">
+          </div> -->
+          <div class="d-flex justify_center pt-30 pb-30">
             <el-button
+              v-if="profile.is_id_card_verified != 1"
               type="success"
               class="w-50"
               :loading="loading"
               @click="approveLister(profile)"
-              ><i class="el-icon-check pr-10"></i>Verified</el-button
+              ><i class="el-icon-check pr-10"></i>Verify</el-button
             >
-
             <el-button
+              v-else
               type="info"
               class="w-50"
               :loading="loading"
               @click="approveLister(profile)"
-              ><i class="el-icon-close pr-10"></i>Unverified</el-button
+              ><i class="el-icon-close pr-10"></i>Unverify</el-button
             >
           </div>
         </div>
